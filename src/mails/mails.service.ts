@@ -10,7 +10,7 @@ export class MailsService {
   ) {}
 
   async sendActivationLink(activationLink: string, email: string) {
-    console.log(this.configService.get('mailer'));
+    // console.log(this.configService.get('mailer'));
     this.mailerService
       .sendMail({
         to: email, // list of receivers
