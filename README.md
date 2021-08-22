@@ -5,7 +5,8 @@ advanced user authentication with **Access / Refresh** tokens. Sending activatio
 order to make user account confirmed. **Winston** library for better logging system.
 **Swagger** for OpenAPI documentation. **TypeORM** postgres database.
 
-##TODO 
+## TODO 
+
 **Connect properly .env ( configService ) - &#9989;**  
 **Access token - &#9989;**  
 **Auth Guard ( protected route ) - &#9989;**  
