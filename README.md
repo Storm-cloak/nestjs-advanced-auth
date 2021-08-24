@@ -7,11 +7,11 @@ order to make user account confirmed. **Winston** library for better logging sys
 
 ## TODO 
 
-**Connect properly .env ( configService ) - &#9989;**  
+**Dynamic env variables (prod,dev etc.) - &#9989;**  
 **Access token - &#9989;**  
 **Auth Guard ( protected route ) - &#9989;**  
 **Activation link Nodemailer - &#9989;**  
-**Winston Logger - &#10060;**  
+**Winston Logging Interceptor & HttpException filter - &#9989;**  
 **Refresh token - &#10060;**  
 **Swagger - &#10060;**  
 

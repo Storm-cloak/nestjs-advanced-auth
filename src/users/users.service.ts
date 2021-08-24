@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './user.entity';
 import { UserRepository } from './users.reprository';
 import { UserRegisterDto } from './dto/user.register.dto';
-import { MailsService } from '../mails/mails.service';
+import { MailsService } from '../mailer/mails.service';
 import { ConfigService } from '@nestjs/config';
 
 @Injectable()
@@ -17,7 +17,7 @@ export class UsersService {
     return await this.userRepository.findOne({ email });
   }
 
-  async findAll() {
+  async findAll(): Promise<User[]> {
     return await this.userRepository.find();
   }
 

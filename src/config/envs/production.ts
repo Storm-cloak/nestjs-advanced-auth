@@ -1,6 +1,6 @@
-export const config = () => ({
+export const config = {
   apiURL: process.env.API_URL,
-  port: Number(process.env.PORT),
+  port: Number(process.env.PORT) || 3000,
   jwt: {
     jwtSecret: process.env.JWT_SECRET_KEY,
     jwtExpiresIn: process.env.JWT_EXPIRES_IN,
@@ -12,9 +12,9 @@ export const config = () => ({
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
-    entities: [__dirname + '/../**/*.entity.{ts,js}'],
+    entities: [__dirname + '../../../**/*.entity.{ts,js}'],
     synchronize: true,
-    logging: true,
+    logging: false,
   },
   mailer: {
     transport: {
@@ -27,4 +27,4 @@ export const config = () => ({
       },
     },
   },
-});
+};

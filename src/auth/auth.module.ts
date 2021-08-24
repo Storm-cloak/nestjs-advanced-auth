@@ -8,13 +8,11 @@ import { UsersModule } from 'src/users/users.module';
 import { UserRepository } from 'src/users/users.reprository';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigService } from '@nestjs/config';
-import { MailsModule } from 'src/mails/mails.module';
 
 @Module({
   imports: [
     UsersModule,
     PassportModule,
-    MailsModule,
     JwtModule.registerAsync({
       useFactory: async (configService: ConfigService) => ({
         secret: configService.get('jwt').jwtSecret,
