@@ -7,9 +7,10 @@ import {
   Put,
   ValidationPipe,
 } from '@nestjs/common';
-import { UserLoginDto } from 'src/users/dto/user.login.dto';
-import { UserRegisterDto } from 'src/users/dto/user.register.dto';
+import { UserLoginDto } from 'src/users/dto/user-login.dto';
+import { UserRegisterDto } from 'src/users/dto/user-register.dto';
 import { AuthService } from './auth.service';
+import { ApiBody } from '@nestjs/swagger';
 
 @Controller('auth')
 export class AuthController {

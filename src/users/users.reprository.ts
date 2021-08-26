@@ -3,11 +3,11 @@ import {
   InternalServerErrorException,
 } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
-import { UserRegisterDto } from './dto/user.register.dto';
+import { UserRegisterDto } from './dto/user-register.dto';
 import { EntityRepository, Repository } from 'typeorm';
 import { User } from './user.entity';
 import { v4 as uuid4 } from 'uuid';
-import { UserLoginDto } from './dto/user.login.dto';
+import { UserLoginDto } from './dto/user-login.dto';
 
 @EntityRepository(User)
 export class UserRepository extends Repository<User> {

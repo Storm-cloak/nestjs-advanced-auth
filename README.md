@@ -13,7 +13,7 @@ order to make user account confirmed. **Winston** library for better logging sys
 **Activation link Nodemailer - &#9989;**  
 **Winston Logging Interceptor & HttpException filter - &#9989;**  
 **Refresh token - &#10060;**  
-**Swagger - &#10060;**  
+**Swagger - &#9989;**  
 
 
 ## Installation

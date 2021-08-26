@@ -11,17 +11,17 @@ export class CustomLoggerService implements LoggerService {
   constructor() {
     this.initLogger();
   }
-  private format(
-    message: string,
-    params?: Record<string, unknown>,
-  ): Record<string, unknown> {
-    return {
-      _stage: process.env.NODE_ENV,
-      timestamp: new Date().toISOString(),
-      message,
-      ...params,
-    };
-  }
+  // private format(
+  //   message: string,
+  //   params?: Record<string, unknown>,
+  // ): Record<string, unknown> {
+  //   return {
+  //     _stage: process.env.NODE_ENV,
+  //     timestamp: new Date().toISOString(),
+  //     message,
+  //     ...params,
+  //   };
+  // }
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore

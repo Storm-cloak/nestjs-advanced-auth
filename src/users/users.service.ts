@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './user.entity';
 import { UserRepository } from './users.reprository';
-import { UserRegisterDto } from './dto/user.register.dto';
+import { UserRegisterDto } from './dto/user-register.dto';
 import { MailsService } from '../mailer/mails.service';
 import { ConfigService } from '@nestjs/config';
 
