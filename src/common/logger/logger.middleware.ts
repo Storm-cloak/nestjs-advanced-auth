@@ -11,7 +11,7 @@ export class LoggerMiddleware implements NestMiddleware {
     res.on('close', () => {
       const timeResponse = new Date().getTime();
       const delay = timeResponse - timeRequest;
-      this.logger.log(res.statusMessage, {
+      this.logger.log(res.statusMessage, undefined, {
         timeResponse,
         delay,
         userID: undefined,

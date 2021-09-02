@@ -9,7 +9,7 @@ async function bootstrap() {
   });
   app.use(helmet());
   const configService = app.get(ConfigService);
-  const PORT = configService.get('PORT');
+  const PORT = configService.get('port');
   const config = new DocumentBuilder()
     .setTitle('Advanced auth AA ')
     .setDescription('The API description')
@@ -21,6 +21,7 @@ async function bootstrap() {
   try {
     await app.listen(PORT);
     console.log(`app started on port ${PORT}`);
+    console.log('Environments are', configService);
   } catch (error) {
     console.log(error);
   }

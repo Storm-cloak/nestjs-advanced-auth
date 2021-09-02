@@ -19,8 +19,6 @@ class LoggingInterceptor implements NestInterceptor {
     const traceID = uuid4();
     const start = Date.now();
 
-    this.prepareDataAndLog('info', context, traceID, start);
-
     return next
       .handle()
       .pipe(
@@ -47,7 +45,7 @@ class LoggingInterceptor implements NestInterceptor {
     const args = context.args['0'];
     const response = context.args['1'];
     const duration = Date.now() - start;
-    this.logger.log('', {
+    this.logger.log('KEK', undefined, {
       level,
       _stage: process.env.NODE_ENV,
       timestamp: new Date(),

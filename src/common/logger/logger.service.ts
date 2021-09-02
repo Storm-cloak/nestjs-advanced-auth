@@ -11,27 +11,17 @@ export class CustomLoggerService implements LoggerService {
   constructor() {
     this.initLogger();
   }
-  // private format(
-  //   message: string,
-  //   params?: Record<string, unknown>,
-  // ): Record<string, unknown> {
-  //   return {
-  //     _stage: process.env.NODE_ENV,
-  //     timestamp: new Date().toISOString(),
-  //     message,
-  //     ...params,
-  //   };
-  // }
-
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  myFormat = format.printf(({ message, level, timestamp, ...params }) => {
-    return `_stage: ${process.env.NODE_ENV} ${timestamp}
-    level: ${level}
-    message: ${message}
-    ${JSON.stringify(params[SPLAT][0])}
-    `;
-  });
+  private formatter(
+    message: string,
+    params?: Record<string, unknown>,
+  ): Record<string, unknown> {
+    return {
+      _stage: process.env.NODE_ENV,
+      timestamp: new Date().toISOString(),
+      message,
+      ...params,
+    };
+  }
 
   initLogger() {
     this.logger = createLogger({
@@ -39,20 +29,21 @@ export class CustomLoggerService implements LoggerService {
         format.json(),
         format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
         format.colorize(),
-        this.myFormat,
+        format.prettyPrint(),
       ),
       transports: [new transports.Console()],
     });
   }
 
-  error(message: any, optionalParamsObject?: any): any {
-    this.logger.error(message, optionalParamsObject);
-  }
-  log(message: any, optionalParamsObject?: any): any {
-    this.logger.info(message, optionalParamsObject);
+  log(message: any, context?: string, params?: Record<string, unknown>): void {
+    this.logger.info(this.formatter(message, params));
   }
 
-  warn(message: any, optionalParamsObject?: any): any {
-    this.logger.warn(message, optionalParamsObject);
+  error(message: any, params?: Record<string, unknown>): void {
+    this.logger.error(this.formatter(message, params));
+  }
+
+  warn(message: any, params?: Record<string, unknown>): void {
+    this.logger.warn(this.formatter(message, params));
   }
 }

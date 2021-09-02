@@ -1,4 +1,4 @@
-import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DatabaseConfig } from './config/db.config';
@@ -13,7 +13,6 @@ import { MailerConfig } from './config/mailer.config';
 import { HttpExceptionFilter } from './common/filters/http-exception.filter';
 import { APP_FILTER, APP_INTERCEPTOR } from '@nestjs/core';
 import { LoggerModule } from './common/logger/logger.module';
-import { LoggerMiddleware } from './common/logger/logger.middleware';
 import { LoggingInterceptor } from './common/logger/logger.interceptor';
 @Module({
   imports: [

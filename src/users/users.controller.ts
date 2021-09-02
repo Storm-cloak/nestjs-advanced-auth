@@ -3,7 +3,6 @@ import {
   Controller,
   Get,
   Post,
-  SerializeOptions,
   UseGuards,
   ValidationPipe,
 } from '@nestjs/common';
