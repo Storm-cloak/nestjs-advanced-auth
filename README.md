@@ -5,7 +5,7 @@ advanced user authentication with **Access / Refresh** tokens. Sending activatio
 order to make user account confirmed. **Winston** library for better logging system.
 **Swagger** for OpenAPI documentation. **TypeORM** postgres database.
 
-## TODO 
+## What I learned and TODO 
 
 **Dynamic env variables (prod,dev etc.) - &#9989;**  
 **Access token - &#9989;**  
