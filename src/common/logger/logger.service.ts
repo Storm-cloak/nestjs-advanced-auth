@@ -1,5 +1,4 @@
 import { LoggerService } from '@nestjs/common';
-import { SPLAT } from 'triple-beam';
 import {
   createLogger,
   format,

@@ -4,7 +4,7 @@ import {
   ExecutionContext,
   CallHandler,
 } from '@nestjs/common';
-import { Observable, throwError } from 'rxjs';
+import { Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { v4 as uuid4 } from 'uuid';
 import { CustomLoggerService } from './logger.service';
@@ -16,7 +16,7 @@ class LoggingInterceptor implements NestInterceptor {
   }
 
   intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
-    const traceID = uuid4();
+    const traceID: string = uuid4();
     const start = Date.now();
 
     return next
@@ -30,7 +30,7 @@ class LoggingInterceptor implements NestInterceptor {
       .pipe(
         catchError((err) => {
           this.prepareDataAndLog('error', context, traceID, start, err);
-          return throwError(err);
+          throw new Error(err);
         }),
       );
   }
@@ -45,7 +45,7 @@ class LoggingInterceptor implements NestInterceptor {
     const args = context.args['0'];
     const response = context.args['1'];
     const duration = Date.now() - start;
-    this.logger.log('KEK', undefined, {
+    this.logger.log('[loggerInterceptor]', undefined, {
       level,
       _stage: process.env.NODE_ENV,
       timestamp: new Date(),
